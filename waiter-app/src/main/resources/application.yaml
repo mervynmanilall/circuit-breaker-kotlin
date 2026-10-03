@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: waiter-app
+
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 10   # 10 waiters
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10                  # look at the last 10 orders
+        minimum-number-of-calls: 5               # judge only after 5 orders
+        failure-rate-threshold: 50               # 50% failed → OPEN
+        slow-call-duration-threshold: 2s         # over 2 s counts as slow
+        slow-call-rate-threshold: 50             # 50% slow → OPEN
+        wait-duration-in-open-state: 10s         # stay OPEN for 10 s
+        permitted-number-of-calls-in-half-open-state: 3   # 3 test orders
+        automatic-transition-from-open-to-half-open-enabled: true
+        ignore-exceptions:
+          - org.springframework.web.client.HttpClientErrorException   # 400 = customer's mistake
+    instances:
+      grill:
+        base-config: default
+      dessert:
+        base-config: default
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, circuitbreakers, circuitbreakerevents

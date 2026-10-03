@@ -1,0 +1,180 @@
+{
+  "info": {
+    "_postman_id": "80b93767-0f05-4cc0-8d40-e287ddaa5df8",
+    "name": "Google DevFest 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6811510"
+  },
+  "item": [
+    {
+      "name": "Kitchen - Grill a dish",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8081/grill?dish=brochette",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "grill"
+          ],
+          "query": [
+            {
+              "key": "dish",
+              "value": "brochette"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Kitchen - Grill a dessert",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8081/grill?dish=napolitaine",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "grill"
+          ],
+          "query": [
+            {
+              "key": "dish",
+              "value": "napolitaine"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Kitchen - Set grill mode",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8081/grill/mode?mode=slow",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "grill",
+            "mode"
+          ],
+          "query": [
+            {
+              "key": "mode",
+              "value": "slow"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Waiter - Order grill",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/order/grill?dish=brochette",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "order",
+            "grill"
+          ],
+          "query": [
+            {
+              "key": "dish",
+              "value": "brochette"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Waiter - Grill dessert",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/order/dessert?dish=napolitaine",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "order",
+            "dessert"
+          ],
+          "query": [
+            {
+              "key": "dish",
+              "value": "napolitaine"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Circuit breaker health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/actuator/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "actuator",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "circuitbreakers actuator",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/actuator/circuitbreakers",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "actuator",
+            "circuitbreakers"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
